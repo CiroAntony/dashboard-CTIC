@@ -1,0 +1,151 @@
+.main-nav-header {
+  background-color: #eee;
+  margin: 0;
+  box-shadow: 0px 4px 14px grey;
+}
+
+.header__container {
+  color: var(--fisrt-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 0;
+  margin: 0 50px 0 50px;
+}
+
+.link-header {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.wel-logo {
+  font-size: 38px;
+  font-weight: bold;
+  color: orange;
+  position: relative;
+}
+
+.wel-logo::before {
+  content: " C";
+  color: blue;
+}
+
+.list-employee {
+  color: #9f78ab;
+  margin-left: 30px;
+  font-size: 20px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.list-employee:hover {
+  color: #398b9d;
+}
+
+.header__user-icon {
+  font-size: 2em;
+}
+
+.logo__box {
+  display: flex;
+  align-items: center;
+}
+
+.btn,
+.name,
+.logout {
+  font-weight: 600;
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: white;
+  border: 1px solid gray;
+  padding: 0.5em;
+}
+
+.dropdown__list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown__list li {
+  padding: 0.5em;
+  cursor: pointer;
+}
+
+.dropdown__list li:hover {
+  background-color: lightgray;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: transparent !important;
+  color: #9f78ab;
+  border-radius: 0.25rem;
+  text-decoration: none;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: #aaa;
+  color: #398b9d;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: none;
+  padding: 0.5rem 0;
+  background-color: #398b9d;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.menu-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.logout {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  background-color: #398b9d;
+  color: #fff;
+  border: none;
+  text-align: left;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.logout:hover,
+.logout:focus {
+  background-color: #2e6d7a;
+}
+
+.name:any-link {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  background-color: #398b9d;
+  color: #fff;
+  border: none;
+  text-align: left;
+  font-size: 1rem;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.name:hover {
+  background-color: #2e6d7a;
+}
