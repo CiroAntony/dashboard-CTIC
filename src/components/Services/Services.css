@@ -1,0 +1,33 @@
+.main-service-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  
+}
+
+.tittle-service {
+  font-weight: bold;
+  margin: 20px;
+}
+
+.cards {
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2em;
+}
+
+.cards .card{
+  height: 150px;
+  display: flex;
+  flex-direction: row;
+  gap: 2em;
+  justify-content: center;
+  align-items: center;
+}
+
+.service-icon{
+  font-size: 5em;
+}

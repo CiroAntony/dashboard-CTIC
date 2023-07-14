@@ -1,0 +1,160 @@
+.form-informes {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  z-index: 9999;
+  overflow: auto;
+  max-height: 90vh;
+  border-radius: 20px;
+  padding: 40px;
+}
+
+.titulo-ctnr {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.barra{
+  width: 100%;
+  background-color: #dddddd34;
+  border-radius: 10em;
+}
+.bar__progress{
+  border-radius: 10em;
+  background-color: #333;
+  position: absolute;
+  transition: all 0.7s ease;
+}
+.preguntas {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  padding: 8px;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.informe-respuestas {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  z-index: 9999;
+  overflow: auto;
+  max-height: 90vh;
+  border-radius: 20px;
+  padding: 40px;
+}
+
+.grafico-linea {
+  display: flex;
+  margin-bottom: 10px;
+  width: 70%;
+  border-radius: 12px;
+  position: relative;
+}
+
+.rojo {
+  background-color: red;
+}
+
+.amarillo {
+  background-color: yellow;
+}
+
+.verde {
+  background-color: green;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fecha {
+  text-align: end;
+}
+
+.btn-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-save {
+  padding: 10px 42px;
+  background-color: #c8cdcf;
+  border: none;
+  border-radius: 12px;
+}
+
+.btn-save:hover {
+  background-color: #a0d9d1;
+}
+
+.card-container {
+  display: flex;
+  gap: 3em;
+  margin-top: 2em;
+  flex-flow: row wrap;
+}
+
+.informe-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 2em;
+  border-radius: 15px;
+  border: 1px solid #317f43;
+  color: #317f43;
+}
+.informe-card span{
+  color: #333;
+}
+
+.rojo-background {
+  color: red;
+}
+
+.verde-background {
+  color: green;
+}
+
+
+
+.informes-list{
+  text-align: center;
+  width: 90%;
+  margin: auto;
+  padding: 30px 0;
+}
+.informes__content{
+  display: flex;
+  justify-content: space-between;
+}
+.informes__content button{
+  border: 0;
+  background-color: #a0d9d1;
+  padding: 10px 40px;
+  border-radius: 10px;
+}
+.description-length{
+  margin: auto;
+  margin-top: 2em;
+}
+.informe-createddate{
+  font-size: 1.2em;
+}
