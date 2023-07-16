@@ -28,6 +28,7 @@ const ListEmployee = () => {
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const [editEmployeeId, setEditEmployeeId] = useState(null);
   const [companySelectedId, setCompanySelectedId] = useState("");
+  const [imageRefreshKey, setImageRefreshKey] = useState(Date.now()); // Nuevo estado para actualizar las imágenes
 
   const navigate = useNavigate();
 
@@ -46,6 +47,7 @@ const ListEmployee = () => {
     try {
       const response = await axios.get("http://localhost:5000/api/usuario");
       setEmployees(response.data);
+      setImageRefreshKey(Date.now()); // Actualizar el valor de imageRefreshKey
     } catch (error) {
       console.error("Error al obtener la lista de empleados:", error);
     }
@@ -113,6 +115,16 @@ const ListEmployee = () => {
     }
   };
 
+  const validateImageSize = (file) => {
+    const maxSize = 1 * 1024 * 1024;
+    if (file && file.size > maxSize) {
+      setFormError("The image size should not exceed 1 MB.");
+      return false;
+    }
+
+    return true;
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -141,6 +153,10 @@ const ListEmployee = () => {
       formData.append("estado", newEmployee.estado);
 
       if (newEmployee.imagen) {
+        if (!validateImageSize(newEmployee.imagen)) {
+          return;
+        }
+
         formData.append("imagen", newEmployee.imagen);
       }
 
@@ -229,16 +245,19 @@ const ListEmployee = () => {
               <div className="user_profile_card">
                 <div className="user_profile_img">
                   <div className="companie-img-container">
-                    { employee.imagen ? <img
-                      src={`http://localhost:5000/api/usuario/${employee.id_usuario}/imagen`}
-                      alt="companie_image"
-                      className="companie-img"
-                    /> : <img
-                    src={require("../../assets/user-not-image.webp")}
-                    alt="user not found"
-                    className="companie__image"
-                  />}
-                    
+                    {employee.imagen ? (
+                      <img
+                        src={`http://localhost:5000/api/usuario/${employee.id_usuario}/imagen?key=${imageRefreshKey}`}
+                        alt="companie_image"
+                        className="companie-img"
+                      />
+                    ) : (
+                      <img
+                        src={require("../../assets/user-not-image.webp")}
+                        alt="user not found"
+                        className="companie__image"
+                      />
+                    )}
                   </div>
                 </div>
                 <div className="user_details">

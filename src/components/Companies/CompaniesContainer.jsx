@@ -175,15 +175,6 @@ const CompaniesContainer = () => {
   };
 
   const handleCloseForm = () => {
-    if (
-      isEditing &&
-      newCompany.imagen &&
-      newCompany.imagen.size > 1 * 1024 * 1024
-    ) {
-      setFormError("The image size should not exceed 1 MB.");
-      return;
-    }
-
     setShowForm(false);
     setIsEditing(false);
     setSelectedCompanyData(null);
@@ -225,6 +216,10 @@ const CompaniesContainer = () => {
 
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
+  };
+
+  const generateRandomQueryParam = () => {
+    return `?${Math.random().toString(36).substring(7)}`;
   };
 
   return (
@@ -271,7 +266,9 @@ const CompaniesContainer = () => {
                   </div>
                   {company.imagen ? (
                     <img
-                      src={`http://localhost:5000/api/companies/${company.id_empresa}/imagen`}
+                      src={`http://localhost:5000/api/companies/${
+                        company.id_empresa
+                      }/imagen${generateRandomQueryParam()}`}
                       alt="user_image"
                       className="companie__image"
                       width="60"

@@ -6,7 +6,6 @@ body {
 
 .search__container {
   display: flex;
-
 }
 
 .input-search {
@@ -55,13 +54,12 @@ body {
 .user_profile_card {
   margin-top: 30px;
   background-color: #0c5adb;
-  padding: 16px 8px;
   border-radius: 16px;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
-  width: 100%;
+  width: 80%;
   height: 100%;
 }
 .circle_decor1 {
