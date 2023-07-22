@@ -266,9 +266,8 @@ const CompaniesContainer = () => {
                   </div>
                   {company.imagen ? (
                     <img
-                      src={`http://localhost:5000/api/companies/${
-                        company.id_empresa
-                      }/imagen${generateRandomQueryParam()}`}
+                      src={`http://localhost:5000/api/companies/${company.id_empresa
+                        }/imagen${generateRandomQueryParam()}`}
                       alt="user_image"
                       className="companie__image"
                       width="60"
