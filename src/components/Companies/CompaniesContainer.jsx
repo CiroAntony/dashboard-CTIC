@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { FaEdit } from "react-icons/fa";
 
 const CompaniesContainer = () => {
+  const url = "https://ctic-server.onrender.com/";
   const [companies, setCompanies] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [showForm, setShowForm] = useState(false);
@@ -30,7 +31,7 @@ const CompaniesContainer = () => {
 
   const fetchCompanies = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/companies");
+      const response = await axios.get(`${url}api/companies`);
       setCompanies(response.data);
     } catch (error) {
       console.error("Error al obtener las empresas:", error);
@@ -108,7 +109,7 @@ const CompaniesContainer = () => {
         }
 
         await axios.put(
-          `http://localhost:5000/api/companies/${selectedCompanyData.id_empresa}`,
+          `${url}api/companies/${selectedCompanyData.id_empresa}`,
           formData,
           {
             headers: {
@@ -117,7 +118,7 @@ const CompaniesContainer = () => {
           }
         );
       } else {
-        await axios.post("http://localhost:5000/api/companies", formData, {
+        await axios.post(`${url}api/companies`, formData, {
           headers: {
             "Content-Type": "multipart/form-data",
           },
@@ -266,8 +267,9 @@ const CompaniesContainer = () => {
                   </div>
                   {company.imagen ? (
                     <img
-                      src={`http://localhost:5000/api/companies/${company.id_empresa
-                        }/imagen${generateRandomQueryParam()}`}
+                      src={`${url}api/companies/${
+                        company.id_empresa
+                      }/imagen${generateRandomQueryParam()}`}
                       alt="user_image"
                       className="companie__image"
                       width="60"

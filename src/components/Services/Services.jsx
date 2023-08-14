@@ -15,7 +15,7 @@ const Services = () => {
 
   const fetchServices = () => {
     axios
-      .get("http://localhost:5000/api/services")
+      .get("https://ctic-server.onrender.com/api/services")
       .then((response) => {
         setServices(response.data);
       })
@@ -38,13 +38,41 @@ const Services = () => {
               key={service.id_servicio}
             >
               <div className="card">
-              { service.nombre === "SERVERS" ? <i class="fa-solid fa-server service-icon"></i> : <></>}
-              { service.nombre === "WORKSTATION" ? <i class="fa-regular fa-hard-drive service-icon"></i> : <></>}
-              { service.nombre === "NETWORK" ? <i class="fa-solid fa-network-wired service-icon"></i> : <></>}
-              { service.nombre === "EMAIL" ? <i class="fa-solid fa-envelope service-icon"></i> : <></>}
-              { service.nombre === "WEBSITE" ? <i class="fa-solid fa-globe service-icon"></i> : <></>}
-              { service.nombre === "PHONES" ? <i class="fa-solid fa-mobile service-icon"></i> : <></>}
-              { service.nombre === "INTERNAL" ? <i class="fa-solid fa-ribbon service-icon"></i> : <></>}
+                {service.nombre === "SERVERS" ? (
+                  <i class="fa-solid fa-server service-icon"></i>
+                ) : (
+                  <></>
+                )}
+                {service.nombre === "WORKSTATION" ? (
+                  <i class="fa-regular fa-hard-drive service-icon"></i>
+                ) : (
+                  <></>
+                )}
+                {service.nombre === "NETWORK" ? (
+                  <i class="fa-solid fa-network-wired service-icon"></i>
+                ) : (
+                  <></>
+                )}
+                {service.nombre === "EMAIL" ? (
+                  <i class="fa-solid fa-envelope service-icon"></i>
+                ) : (
+                  <></>
+                )}
+                {service.nombre === "WEBSITE" ? (
+                  <i class="fa-solid fa-globe service-icon"></i>
+                ) : (
+                  <></>
+                )}
+                {service.nombre === "PHONES" ? (
+                  <i class="fa-solid fa-mobile service-icon"></i>
+                ) : (
+                  <></>
+                )}
+                {service.nombre === "INTERNAL" ? (
+                  <i class="fa-solid fa-ribbon service-icon"></i>
+                ) : (
+                  <></>
+                )}
                 <h2>{service.nombre}</h2>
               </div>
             </Link>

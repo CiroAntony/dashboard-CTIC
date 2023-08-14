@@ -17,10 +17,13 @@ const LoginForm = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post("http://localhost:5000/api/login", {
-        usuario,
-        password,
-      });
+      const response = await axios.post(
+        "https://ctic-server.onrender.com/api/login",
+        {
+          usuario,
+          password,
+        }
+      );
       if (response.status === 200) {
         const { usuario, nombres, apellidos, correo, telefono, id_rol } =
           response.data;

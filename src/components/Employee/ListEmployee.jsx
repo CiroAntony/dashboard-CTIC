@@ -45,7 +45,9 @@ const ListEmployee = () => {
 
   const fetchEmployees = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/usuario");
+      const response = await axios.get(
+        "https://ctic-server.onrender.com/api/usuario"
+      );
       setEmployees(response.data);
       setImageRefreshKey(Date.now()); // Actualizar el valor de imageRefreshKey
     } catch (error) {
@@ -55,7 +57,9 @@ const ListEmployee = () => {
 
   const fetchRoles = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/roles");
+      const response = await axios.get(
+        "https://ctic-server.onrender.com/api/roles"
+      );
       setRoles(response.data);
     } catch (error) {
       console.error("Error al obtener la lista de roles:", error);
@@ -64,7 +68,9 @@ const ListEmployee = () => {
 
   const fetchCompanies = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/companies");
+      const response = await axios.get(
+        "https://ctic-server.onrender.com/api/companies"
+      );
       setCompanies(response.data);
       console.log(response.data);
     } catch (error) {
@@ -162,7 +168,7 @@ const ListEmployee = () => {
 
       if (editEmployeeId) {
         await axios.put(
-          `http://localhost:5000/api/usuario/${editEmployeeId}`,
+          `https://ctic-server.onrender.com/api/usuario/${editEmployeeId}`,
           formData,
           {
             headers: {
@@ -171,11 +177,15 @@ const ListEmployee = () => {
           }
         );
       } else {
-        await axios.post("http://localhost:5000/api/usuario", formData, {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        });
+        await axios.post(
+          "https://ctic-server.onrender.com/api/usuario",
+          formData,
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+          }
+        );
       }
 
       fetchEmployees();
@@ -247,7 +257,7 @@ const ListEmployee = () => {
                   <div className="companie-img-container">
                     {employee.imagen ? (
                       <img
-                        src={`http://localhost:5000/api/usuario/${employee.id_usuario}/imagen?key=${imageRefreshKey}`}
+                        src={`https://ctic-server.onrender.com/api/usuario/${employee.id_usuario}/imagen?key=${imageRefreshKey}`}
                         alt="companie_image"
                         className="companie-img"
                       />

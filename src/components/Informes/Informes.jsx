@@ -18,7 +18,7 @@ export default function Informes() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/api/preguntas/${serviceId}`)
+      .get(`https://ctic-server.onrender.com/api/preguntas/${serviceId}`)
       .then((response) => {
         setPreguntas(response.data);
       })
@@ -27,7 +27,9 @@ export default function Informes() {
       });
 
     axios
-      .get(`http://localhost:5000/api/informes/${companyId}/${serviceId}`)
+      .get(
+        `https://ctic-server.onrender.com/api/informes/${companyId}/${serviceId}`
+      )
       .then((response) => {
         setInformes(response.data);
         console.log(response.data);
@@ -36,7 +38,9 @@ export default function Informes() {
 
         const informesConSi = response.data.reduce((acc, informe) => {
           axios
-            .get(`http://localhost:5000/api/respuestas/${informe.informeId}`)
+            .get(
+              `https://ctic-server.onrender.com/api/respuestas/${informe.informeId}`
+            )
             .then((response) => {
               const preguntasSi = response.data.filter(
                 (respuesta) =>
@@ -62,7 +66,9 @@ export default function Informes() {
 
         const informesConSiV2 = response.data.reduce((acc, informe) => {
           axios
-            .get(`http://localhost:5000/api/respuestas/${informe.informeId}`)
+            .get(
+              `https://ctic-server.onrender.com/api/respuestas/${informe.informeId}`
+            )
             .then((response) => {
               const preguntasSi = response.data.filter(
                 (respuesta) =>
@@ -104,7 +110,7 @@ export default function Informes() {
     event.preventDefault();
 
     axios
-      .post("http://localhost:5000/api/informes", {
+      .post("https://ctic-server.onrender.com/api/informes", {
         companyId,
         serviceId,
       })
@@ -118,7 +124,7 @@ export default function Informes() {
         }));
 
         axios
-          .post("http://localhost:5000/api/respuestas", {
+          .post("https://ctic-server.onrender.com/api/respuestas", {
             informeId,
             respuestas,
           })
@@ -138,7 +144,7 @@ export default function Informes() {
 
   const handleVerInforme = (informeId) => {
     axios
-      .get(`http://localhost:5000/api/respuestas/${informeId}`)
+      .get(`https://ctic-server.onrender.com/api/respuestas/${informeId}`)
       .then((response) => {
         const respuestas = response.data;
         const preguntaIds = respuestas.map(
@@ -244,10 +250,10 @@ export default function Informes() {
                       barraProgress <= 33.33
                         ? "#e62e1b"
                         : (barraProgress > 33.33) & (barraProgress <= 66.66)
-                          ? "#eaf937"
-                          : barraProgress > 66.66
-                            ? "#317f43"
-                            : "white",
+                        ? "#eaf937"
+                        : barraProgress > 66.66
+                        ? "#317f43"
+                        : "white",
                   }}
                 ></div>
               }
@@ -301,19 +307,19 @@ export default function Informes() {
                       ? "#e62e1b"
                       : (preguntasConSi[informe.informeId] > 33.33) &
                         (preguntasConSi[informe.informeId] <= 66.66)
-                        ? "#C1CA49"
-                        : preguntasConSi[informe.informeId] > 66.66
-                          ? "#317f43"
-                          : "white",
+                      ? "#C1CA49"
+                      : preguntasConSi[informe.informeId] > 66.66
+                      ? "#317f43"
+                      : "white",
                   borderColor:
                     preguntasConSi[informe.informeId] <= 33.33
                       ? "#e62e1b"
                       : (preguntasConSi[informe.informeId] > 33.33) &
                         (preguntasConSi[informe.informeId] <= 66.66)
-                        ? "#C1CA49"
-                        : preguntasConSi[informe.informeId] > 66.66
-                          ? "#317f43"
-                          : "white",
+                      ? "#C1CA49"
+                      : preguntasConSi[informe.informeId] > 66.66
+                      ? "#317f43"
+                      : "white",
                 }}
               >
                 <span>Created on</span>
@@ -342,10 +348,10 @@ export default function Informes() {
                     ? "Descalificado"
                     : (preguntasConSi[informe.informeId] > 33.33) &
                       (preguntasConSi[informe.informeId] <= 66.66)
-                      ? "En progreso"
-                      : preguntasConSi[informe.informeId] > 66.66
-                        ? "Aceptado"
-                        : "Error"}
+                    ? "En progreso"
+                    : preguntasConSi[informe.informeId] > 66.66
+                    ? "Aceptado"
+                    : "Error"}
                 </span>
                 <span>{preguntasConSiV2[informe.informeId]}</span>
               </div>
@@ -375,14 +381,14 @@ export default function Informes() {
                       calcularPorcentajes(selectedInforme.respuestas) <= 33.33
                         ? "#e62e1b"
                         : (calcularPorcentajes(selectedInforme.respuestas) >
-                          33.33) &
+                            33.33) &
                           (calcularPorcentajes(selectedInforme.respuestas) <=
                             66.66)
-                          ? "#eaf937"
-                          : calcularPorcentajes(selectedInforme.respuestas) >
-                            66.66
-                            ? "#317f43"
-                            : "white",
+                        ? "#eaf937"
+                        : calcularPorcentajes(selectedInforme.respuestas) >
+                          66.66
+                        ? "#317f43"
+                        : "white",
                   }}
                 ></div>
               }
