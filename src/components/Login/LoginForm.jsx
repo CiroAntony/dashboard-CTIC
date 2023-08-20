@@ -6,8 +6,8 @@ import "./LoginForm.css";
 import SessionCheck from "../Functions/PreventCheck";
 
 const LoginForm = () => {
-  const [usuario, setUsuario] = useState("");
-  const [password, setPassword] = useState("");
+  const [usuario, setUsuario] = useState("Admin");
+  const [password, setPassword] = useState("Admin");
   const [errorMessage, setErrorMessage] = useState("");
   const [isUsuarioFocused, setIsUsuarioFocused] = useState(false);
   const [isPasswordFocused, setIsPasswordFocused] = useState(false);
@@ -77,9 +77,8 @@ const LoginForm = () => {
             <h2>Login</h2>
             <form onSubmit={handleSubmit}>
               <div
-                className={`user-box ${
-                  isUsuarioFocused || usuario !== "" ? "filled" : ""
-                }`}
+                className={`user-box ${isUsuarioFocused || usuario !== "" ? "filled" : ""
+                  }`}
               >
                 <input
                   type="text"
@@ -91,9 +90,8 @@ const LoginForm = () => {
                 <label>Username</label>
               </div>
               <div
-                className={`user-box ${
-                  isPasswordFocused || password !== "" ? "filled" : ""
-                }`}
+                className={`user-box ${isPasswordFocused || password !== "" ? "filled" : ""
+                  }`}
               >
                 <input
                   type="password"
